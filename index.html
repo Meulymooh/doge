@@ -9,27 +9,29 @@
 
 </head>
 
-<body>
-
- <button type="button" id="doge" onload="changeText()" onmouseover="addImage()">Doggo</button> 
- <img id="image" src="img/dog.png" />
+<body onload="changeText()">
 
 
- <script> 
- 	function changeText()
- 	document.getElementById("doge").innerHTML = "Woof!";
- </script>
+  <input type="button" id="doge" value="Doggo" onmouseover="addImage()" onmouseout="removeImage()">
 
-    <script>
-doge.onmouseover = function(){
-        if (image.style.display == "none"){
-        	image.style.display = "block";
-        }
-        else {
-        	image.style.display = "none";
-        }
+<script>
+function changeText(){ 
+  document.getElementById("doge").value = 'Woof!';
 }
-    </script>
+
+</script>
+
+<script>
+function addImage() {
+  document.getElementById("doge").type = "image";
+  document.getElementById("doge").src = "img/dog.png";
+}
+
+function removeImage() {
+  document.getElementById("doge").type = "button";
+}
+</script>
+
 
 
 </body>
