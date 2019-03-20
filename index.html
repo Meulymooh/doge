@@ -9,28 +9,44 @@
 
 </head>
 
-<body onload="changeText()">
+<body class="page" onload="changeText()">
+	
+	<!-- Add the functions in html code -->
+	<input type="button" id="doge" value="Doggo" onmouseover="addImage()" onmouseout="removeImage()" onclick="showHide()"> 
+
+	<div id="cool" style="display:none"><img src="img/doge.png"></div>
 
 
-  <input type="button" id="doge" value="Doggo" onmouseover="addImage()" onmouseout="removeImage()">
+	<script>
+function changeText(){  // Create and name function
+  document.getElementById("doge").value = 'Woof!'; // Change value "Doggo" into "Woof"
+}
+</script>
 
 <script>
-function changeText(){ 
-  document.getElementById("doge").value = 'Woof!';
+function addImage() { // Create and name function
+  document.getElementById("doge").type = "image"; // Change type from "button" to "image"
+  document.getElementById("doge").src = "img/dog.png"; // Find image source
 }
 
+function removeImage() { // Create and name function
+  document.getElementById("doge").type = "button"; // Go back from "image" to "button"
+}
 </script>
 
 <script>
-function addImage() {
-  document.getElementById("doge").type = "image";
-  document.getElementById("doge").src = "img/dog.png";
-}
-
-function removeImage() {
-  document.getElementById("doge").type = "button";
+function showHide(){ // Create and name function
+	if (document.getElementById("cool").style.display == "none") // Original state: hidden
+	{
+		document.getElementById("cool").style.display = "block"; // New state: displayed
+	}
+	else
+	{
+		document.getElementById("cool").style.display = "none"; // Original state: hidden
+	}
 }
 </script>
+
 
 
 
