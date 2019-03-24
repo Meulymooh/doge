@@ -9,47 +9,57 @@
 
 </head>
 
-<body class="page" onload="changeText()">
+<body>
 
-	<!-- Add the functions in html code -->
-	<input type="button" id="doge" value="Doggo" onmouseover="addImage()" onmouseout="removeImage()" onclick="showHide()"> 
-
-	<div id="cool" style="display:none"><img src="img/doge.png"></div>
-
-
-	<script>
-function changeText(){  // Create and name function
-  document.getElementById("doge").value = 'Woof!'; // Change value "Doggo" into "Woof"
-}
-</script>
-
-<script>
-function addImage() { // Create and name function
-  document.getElementById("doge").type = "image"; // Change type from "button" to "image"
-  document.getElementById("doge").src = "img/dog.png"; // Find image source
-}
-
-function removeImage() { // Create and name function
-  document.getElementById("doge").type = "button"; // Go back from "image" to "button"
-}
-</script>
-
-<script>
-function showHide(){ // Create and name function
-	if (document.getElementById("cool").style.display == "none") // Original state: hidden
-	{
-		document.getElementById("cool").style.display = "block"; // New state: displayed
-	}
-	else
-	{
-		document.getElementById("cool").style.display = "none"; // Back to original state: hidden
-	}
-}
-</script>
-
-
-
+	<button type="button" id="doge">Doggo</button> 
 
 </body>
+
+<script>
+
+	var btn = document.getElementById("doge");
+	window.onload = btn.innerHTML = "Woof!";
+
+</script>
+
+<script>
+
+	var img1 = "<img src=\"img/icon.png\">";
+
+	btn.addEventListener("mouseover", mouseOver);
+	btn.addEventListener("mouseout", mouseOut);
+
+	function mouseOver(){
+		btn.innerHTML = img1;
+	}
+
+	function mouseOut(){
+		btn.innerHTML = "Woof!";
+	}
+
+</script>
+
+<script>
+
+	var img2 = document.createElement ("img");
+	img2.src = "img/dog.png";
+	img2.style.display = "none"
+	document.body.appendChild(img2);
+
+	btn.addEventListener("click", onClick);
+
+	function onClick(){
+		if (img2.style.display == "none")
+		{
+			img2.style.display = "block"
+		}
+		else
+		{
+			img2.style.display = "none"
+		}
+	}
+
+</script>
+
 
 </html>
