@@ -23,17 +23,21 @@
 </script>
 
 <script>
-
-	var img1 = "<img src=\"img/icon.png\">";
+	
+	var img1 = document.createElement ("img");
+	img1.src = "img/icon.png";
+	img1.style.display = "block";
 
 	btn.addEventListener("mouseover", mouseOver);
 	btn.addEventListener("mouseout", mouseOut);
 
 	function mouseOver(){
-		btn.innerHTML = img1;
+		btn.innerHTML = "";
+		btn.appendChild(img1);
 	}
 
 	function mouseOut(){
+		btn.removeChild(img1);
 		btn.innerHTML = "Woof!";
 	}
 
@@ -43,7 +47,7 @@
 
 	var img2 = document.createElement ("img");
 	img2.src = "img/dog.png";
-	img2.style.display = "none"
+	img2.style.display = "none";
 	document.body.appendChild(img2);
 
 	btn.addEventListener("click", onClick);
